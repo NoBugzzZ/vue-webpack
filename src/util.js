@@ -1,3 +1,3 @@
-module.exports=function say(){
-    console.log("hello")
+export default function say(){
+    console.log("helloaa")
 }

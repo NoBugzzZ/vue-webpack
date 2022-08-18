@@ -5,11 +5,17 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./output"),
     filename: "index.bundle.js",
-    publicPath: "/output",
+    publicPath: "/output/",
   },
-  mode: "none",
+  mode: "development",
   devServer: {
     port: 7777,
-    static:path.resolve(__dirname)
+    static: path.resolve(__dirname),
+    hot: true,
   },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'    //等同于path.resolve(__dirname,'node_modules/vue/dist/vue.esm.js')
+    }
+  }
 };
