@@ -8,7 +8,7 @@ module.exports = {
     filename: "index.bundle.js",
     // publicPath: "/output/",
   },
-  mode: "development",
+  mode: `${process.env.NODE_ENV === "production" ? "production" : "development"}`,
   devServer: {
     port: 7777,
     static: path.resolve(__dirname, "output"),
@@ -60,3 +60,7 @@ module.exports = {
     }),
   ],
 };
+
+if (process.env.NODE_ENV === "development") {
+  module.exports.devtool = "eval-source-map"
+}
